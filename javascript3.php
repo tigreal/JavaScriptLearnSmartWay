@@ -114,6 +114,73 @@
                 console.log(target.getAttribute("class"));
             }
         }
+        function crearElemento() {
+         var padre= document.getElementById("divpadre");
+         var nodeAdd1= document.createElement("p");
+         nodeAdd1.setAttribute("id","pCreado");
+         var textoNode= document.createTextNode("OSOOOO");
+         nodeAdd1.appendChild(textoNode);
+         var parafo1 = padre.firstChild;
+
+        
+
+
+
+         
+        }
+        function insertarNodoFinal() {
+            var padre = document.getElementById("contenedordeparafos");
+            var parafo = document.createElement("p");
+            var texto = document.createTextNode("3 Me he creado al final");
+            parafo.appendChild(texto);
+            padre.appendChild(parafo);
+            
+        }
+        function insertarNodoPrincipio() {
+            var padre = document.getElementById("contenedordeparafos");
+            var parafo= document.createElement("p");
+            var texto = document.createTextNode("Me he creado al inicio");
+            parafo.appendChild(texto);
+            var primerHijo = padre.firstChild;
+            console.log(primerHijo);
+            padre.insertBefore(parafo,primerHijo);
+            
+        }
+        function removeChilds() {
+            var padre = document.getElementById("contenedordeparafos");
+            var ToErrase = padre.firstChild;
+            console.log(padre.childNodes.length);
+            if(padre.childNodes.length>0){
+                padre.removeChild(ToErrase);
+
+            }
+
+        }
+        var plan ={
+            nombre:"basico",
+            price:3.99,
+            spacio: 100,
+            trasferir:100,
+            pagina:10
+        };
+
+        plan.price=79.95;
+        plan.features=["guarantia","free ship"];
+        paln.bool = false;
+        // objeto sin propiedades
+        var plan2 = {};
+        // se puede crear una propiedad sin valor para darle valor despues este seria indefinido (undefined)
+        plan2.market=undefined;
+        // borrar la propiedad de un objeto
+        delete plan2.merket;
+        // verifica si la propiedad existe en el objeto 
+        existelaPropiedad = "market" in plan2;
+        console.log(existelaPropiedad);
+
+
+
+       
+        
     </script>
 </head>
 
@@ -128,6 +195,7 @@
 
         <p>el segundo contenedor 3</p>
         <p>el segundo contenedor 4</p>
+        <p>osos 4</p>
     </div>
     <div id="contendor3">
         <p>este el primer contenedor 3 </p>
@@ -183,6 +251,19 @@
         </li>
     </ol>
     <img src="image.jpg" id="tagImagen" alt="imagen-cocina" height="50" width="50">
+    <div id="padre">
+        <p>
+            1 prime
+        </p>
+        <p>
+            2 segundo
+        </p>
+    </div>
+    <div id="contenedordeparafos"
+    ><p> el primero </p>
+        <p>el segundo</p>
+        <p>el tercero</p>
+    </div>
     
 
     <input type="button" value="GetContent" onclick="getContenido();">
@@ -194,6 +275,10 @@
     <input type="button" value="llenarLosDivVacios" onclick="llenarLiVacios();">
     <input type="button" value="ObtenerAtributos" onclick="obtnerAtributos();">
     <input type="button" value="colocarAtributos" onclick="colocarAtributos();">
+    <input type="button" value="CrearElemento" onclick="crearElemento();">
+    <input type="button" value="InsertarNodoAlFinal" onclick="insertarNodoFinal();">
+    <input type="button" value="InsertarNodoAlPrincipio" onclick="insertarNodoPrincipio();">
+    <input type="button" value="RemoverHijo" onclick="removeChilds();">
     
     
 
